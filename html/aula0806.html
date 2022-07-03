@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula dia 08.06</title>
+</head>
+
+<body>
+    <span id="dados">
+
+    </span>
+
+    <script>
+        //valor da constante não pode modifica.
+        const v1 = 10;
+        // v1 = 20; //tentativa de mudar o valor da constante
+        console.log(v1);
+
+        var v2 = 100;
+        console.log("v2 - " + v2);
+
+        var v2 = 200;
+        console.log("v2 - " + v2);
+
+        var v3 = 300;
+        console.log("v3 - " + v3);
+
+        var v3 = 400;
+        console.log("v3 - " + v3);
+
+        let nome = prompt("Digite seu nome:");
+        let sexo = prompt("Digite seu sexo:(F-Feminino e M-Masculino)");
+
+        let mensagem;
+
+        if (sexo == 'F') {
+            mensagem = "Bem Vinda " + nome; //Abrindo Chaves vc cria espaço na reposta !
+        } else if (sexo == 'M') {
+            mensagem = "Bem Vindo " + nome;
+        } else {
+            mensagem = "Valor do sexo não identificado.";
+        }
+
+        document.getElementById("dados").innerHTML = mensagem;
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aula 08.06 p2</title>
+</head>
+
+<body>
+    <input type="text" id="n1">
+    <input type="text" id="n2">
+    <input type="text" id="resultado">
+    <br>
+
+    <button onclick="calcular('+')">Somar</button>
+    <button onclick="calcular('-')">Subtrair</button>
+    <button onclick="calcular('/')">Dividir</button>
+    <button onclick="calcular('*')">Multiplicar</button>
+    <button onclick="calcular('%')">Mod</button>
+
+    <script>
+        function calcular(operacao) {
+            var n1 = document.getElementById("n1").value;
+            var n2 = document.getElementById("n2").value;
+            var resultado = 0;
+        
+        if (operacao == '+') {
+            resultado = Number(n1) + Number(n2);
+        }
+        if (operacao == '-') {
+            resultado = n1 - n2;
+        }
+        if (operacao == '*') {
+            resultado = n1 * n2;
+        }
+        if (operacao == '/') {
+            if (n2 != 0) {
+                resultado = n1 / n2;
+            } else {
+                resultado = "O segundo número não pode ser 0.";
+            }
+
+        }
+
+        if (operacao == '%') {
+            resultado = n1 % n2;
+        }
+        document.getElementById("resultado").value = resultado;
+    }
+    </script>
+</body>
+
+</html>

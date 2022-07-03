@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<div lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <title>Document</title>
+    </head>
+
+    <div>
+        <style>
+            h2 {
+                text-align: center;
+            }
+        </style>
+        <div class="container">
+            <h2>Gerenciador Pergunatas Quiz</h2>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pergunta">Pergunta:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="pergunta" placeholder="" name="pergunta"
+                            value="Contra qual Clube Pelé marcou o sei Milesimo gol?">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="opcao01">Opção 01:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="opcao01" placeholder="" value="Vasco">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="opcao02">Opção 02:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="opcao02" placeholder="" value="Portuguesa">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="opcao03">Opção 03:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="opcao03" placeholder="" value="Corinthians">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="opcao04">Opção 04:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="opcao04" placeholder="" value="Cruzeiro">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="">Opção Correta:</label>
+                <div class="col-sm-10">
+                    <label class="radio-inline">
+                        <input type="radio" name="opcaoCorreta" value="1" checked>Opção 01
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="opcaoCorreta" value="2">Opção 02
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="opcaoCorreta" value="3">Opção 03
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="opcaoCorreta" value="4">Opção 04
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" onclick="gravar()" class="btn btn-dark">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function gravar() {
+        let lista = document.querySelectorAll('input');
+        let quiz = { resposta: [] };
+        for (i in lista) {
+            if (i == 0) {
+                quiz.pergunta = lista[i].value;
+            }
+            if (i >= 1 && i <= 4) {
+                quiz.resposta[i - 1] = lista[i].value;
+            }
+            if (i >= 5 && i <= 8) {
+                if (lista[i].checked) {
+                    quiz.correta = i - 5;
+                }
+            }
+
+        }
+        let baseQuiz = localStorage.getItem('baseQuiz');
+        baseQuiz = JSON.parse(baseQuiz);
+        baseQuiz.push(quiz);
+        localStorage.setItem('baseQuiz', JSON.stringify(baseQuiz));
+
+
+    }
+</script>
+</body>
+
+</html>

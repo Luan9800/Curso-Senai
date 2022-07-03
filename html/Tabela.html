@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Uso de Tabelas</title>
+</head>
+
+<body>
+    <style>
+        #tb01 td,
+        #tb01 table {
+            border: solid black 2px;
+            font-size: 100px;
+        }
+        #tb02 td{
+            background-color: rgb(203, 203,236) ;
+            text-align: center;
+        }
+
+        #tb02 th{
+            border: solid black 2px;
+            font-size: 20px;
+            color: white;
+            background-color:blue;
+        }
+    </style>
+    <pre>
+        Litas de Tags:
+        Table - Todas as tags vão ficar dentro de Tabelas 
+        thead -  Indica o cabeçalho da tabela 
+        tbody - indica o corpo da tabela
+        tr  - linhas diretamente dentro da tabela 
+        th - linhas diretamente dentro da tabela
+        td - celular ficam dentro das linhas 
+    </pre>
+    <h1>Exemplo 02</h1>
+    <div id="tb02">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="3">Tabelas das UFf</th>
+                </tr>
+                <tr>
+                    <th>Sigla</th>
+                    <th>Estado</th>
+                    <th>Região</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>AC</td><td>ACRE</td><td rowspan="7">NORTE</td></tr>
+                <tr><td>PA</td><td>PARÁ</td></tr>
+                <tr><td>RO</td><td>RONDÔNIA</td></tr>
+                <tr><td>RR</td><td>RORAIMA</td></tr>
+                <tr><td>TO</td><td>TOCANTINS</td></tr>
+                <tr><td>AM</td><td>AMAZONAS</td></tr>
+                <tr><td>AP</td><td>AMAPÁ</td></tr>
+        
+                <tr><td>MA</td><td>MARANHÃO</td><td rowspan="6">NORDESTE</td></tr>
+                <tr><td>PB</td><td>PARAÍBA</td></tr>
+                <tr><td>PE</td><td>PERNAMBUCO</td></tr>
+                <tr><td>PI</td><td>PIAUÍ</td></tr>
+                <tr><td>RN</td><td>RIO GRANDE DO NORTE</td></tr>
+                <tr><td>SE</td><td>SERGIPE</td></tr>
+                
+        
+                <tr><td>GO</td><td>GOIÁS</td><td rowspan="3">CENTRO-OESTE</td></tr>
+                <tr><td>MS</td><td>MATO GROSSO DO SUL</td></tr>
+                <tr><td>MT</td><td>MATO GROSSO</td></tr>
+        
+                <tr><td>ES</td><td>ESPÍRITO SANTO</td><td rowspan="4">SUDESTE</td></tr>
+                <tr><td>MG</td><td>MINAS GERAIS</td></tr>
+                <tr><td>RJ</td><td>RIO DE JANEIRO</td></tr>
+                <tr><td>SP</td><td>SÃO PAULO</td></tr>
+        
+                <tr><td>RS</td><td>RIO GRANDE DO SUL</td><td rowspan="2">SUL</td></tr>
+                <tr><td>SC</td><td>SANTA CATARINA</td></tr>
+                
+                <tr><td>AL</td><td>ALAGOAS</td><td rowspan="3">NORDESTE</td></tr>
+                <tr><td>BA</td><td>BAHIA</td></tr>
+                <tr><td>CE</td><td>CEARÁ</td></tr>
+            </tbody>
+
+        </table>
+    </div>
+    <h2>Exemplo 01</h2>
+    <div id="tb01">
+        <table>
+            <tr>
+                <td>1,1</td>
+                <td>1,2</td>
+                <td>1,3</td>
+            </tr>
+            <tr>
+                <td>2,1</td>
+                <td>2,2</td>
+                <td>2,3</td>
+            </tr>
+            <tr>
+                <td>3,1</td>
+                <td>3,2</td>
+                <td>3,3</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

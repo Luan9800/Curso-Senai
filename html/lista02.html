@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Atividade 09 - Eu</title>
+</head>
+<style>
+    input[type='text'],
+    select {
+        display: block;
+    }
+
+    h1 {
+        font-size: 16px;
+        margin-bottom: 0px;
+        margin-bottom: 6px;
+    }
+
+    span {
+        font-size: 13px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: darkblue;
+    }
+
+    p {
+        margin: 0px;
+    }
+
+    body {
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .questao {
+        background-color: #f9fbfba1;
+        padding: 1px 0px 10px 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+    }
+
+    .questao:hover {
+        background-color: #e0f7fa;
+    }
+
+    input[type='button'] {
+        margin-top: 10px;
+    }
+
+    .mao {
+        font-size: 30px;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    .adversario {
+        font-size: 50px;
+
+    }
+</style>
+
+<body>
+    <div id="corpo">
+    <div class="questao">
+        <h1>
+            Questã 01:<span>Tabuada
+                <a href="detalhes.html" target="_blank">detalhar</a></span>
+        </h1>
+        <input type="text" id="num" style="display: inline" />
+        <br><input type="button" onclick="questao01()" class="btn btn-danger" value="Calcular" /></br>
+        <p id="resultado01">Resultado:</p>
+    </div>
+    <div class="questao">
+        <h1>
+            Questã 02:<span>Mostrar os números entre 2 valores
+                <a href="detalhes.html" target="_blank">detalhar</a></span>
+        </h1>
+        <p id="resultado02">Resultado: Os número entre A e Z são (x,x,x,x,x).</p>
+        <label for="">Valor 01:</label>
+        <input type="text" id="n1" />
+        <label for="">Valor 02:</label>
+        <input type="text" id="n2" />
+        <input type="button" class="btn btn-danger" onclick="questao02()" value="Executar" />
+    </div>
+    <div class="questao">
+        <h1>
+            Questã 03:<span>
+                Lista armazenada
+                <a href="detalhes.html" target="_blank">detalhar</a></span>
+        </h1>
+        <p id="">Resultado: A lista de itens é [xxxx,xxxx,xxxx,xxxxx]</p>
+        <label for="">Item:</label>
+        <input type="text" id="" />
+        <input type="button" value="Add" />
+        <input type="button" value="Show" />
+        <input type="button" value="Clear" />
+    </div>
+    <div class="questao">
+        <h1>
+            Questã 04:<span>Mega SENA
+                <a href="detalhes.html" target="_blank">detalhar</a></span>
+        </h1>
+        <p id="resultado04">Resultado:00,00,00,00,00,00</p>
+        <input type="button" onclick="questao04()" class="btn btn-danger" value="Sortear" />
+    </div>
+    <div class="questao">
+        <h1>
+            Questã 05:<span>
+                Lista homens e mulheres
+                <a href="detalhes.html" target="_blank">detalhar</a></span>
+        </h1>
+        <p id="">
+            Resultado: <br />Lista de homens [xxxx,xxxx,xxxx,xxxxx] <br />Lista de
+            mulheres [xxxx,xxxx,xxxx,xxxxx]
+        </p>
+        <label for="">Nome:</label>
+        <input type="text" id="" />
+        <label for="">Sexo:</label>
+        <select name="sexo" id="">
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+        </select>
+        <input type="button" value="Add" />
+        <input type="button" value="Show" />
+        <input type="button" value="Clear" />
+    </div>
+    <div class="questao">
+        <h1>
+            DESAFIOO!:<span>
+                Jo-Ken-Po <a href="detalhes.html" target="_blank">detalhar</a></span>
+        </h1>
+        <p id="">Resultado: [Vitótio|Derrota|Empate]</p>
+        <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
+            class="mao">✊🏽</span>
+        <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
+            class="mao">🖐🏽</span>
+        <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
+            class="mao">✌🏽</span>
+
+        <span class="adversario">👋🏽</span>
+    </div>
+    </div>
+    <script>
+        function questao01() {
+            var num = Number(document.getElementById("num").value);
+            var resultado01 = '';
+            for (var count = 1; count <= 10; count++)
+                resultado01 += num + "x" + count + "=" +
+                    num * count + "<br/>";
+
+            document.getElementById("resultado01").innerHTML = `Resultado: <b><br>${resultado01}</b><b>`
+        }
+
+        function questao02() {
+            let n1 = Number(document.getElementById("n1").value);
+            let n2 = Number(document.getElementById("n2").value);
+            let listResultado = [];
+
+            for (let i = 0; i <= i; i++) {
+                listResultado = n1 + n2;
+            }
+            document.getElementById("resultado02").innerHTML = `${listResultado}`;
+        }
+
+
+        function questao04() {
+            const maxNumbers = 6;
+            let randomNumber;
+            let tmp;
+            let list = [];
+
+            for (let i = 0; i < maxNumbers; i++) {
+                 list[i] = i + 10;
+            }
+            for(let i = list.length; i;){
+                randomNumber = Math.random()* i-- | 0;
+                tmp = list[randomNumber];
+                list[randomNumber] = list[i];
+                list[i] = tmp;
+
+                //console.log(list);
+            }
+
+            document.getElementById("resultado04").innerHTML = list;
+
+        }
+
+    </script>
+</body>
+
+</html>
