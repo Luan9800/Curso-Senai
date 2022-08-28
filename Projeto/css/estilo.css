@@ -1,0 +1,37 @@
+body {
+    background-color: #e9ddd8;
+}
+
+img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    box-shadow: 0px 0px 20px #000000;
+}
+
+p {
+    background-color: #f7eaef;
+    position: absolute;
+    top: 0;
+    left: 80px;
+    width: 400px;
+    height: 73px;
+    z-index: -1;
+    padding-left: 40px;
+    padding-top: 10px;
+    border: #e9ddd8 solid 2px;
+    font-family: 'Lucida Handwriting';
+    box-shadow: 0px 0px 5px #000000;
+
+}
+
+.valor {
+    text-align: right;
+    float: right;
+    margin-right: 10px;
+    background-color: #0000007d;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 'Lucida Console';
+}

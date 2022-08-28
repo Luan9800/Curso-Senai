@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+
+<body>
+    <center>
+        <label for="">Palavra:</label>
+        <input type="text" id="palavra">
+        <input type="button" value="Buscar" onclick="buscarPalavra()">
+        <div id="retorno">
+
+        </div>
+    </center>
+    <script>
+        function buscarPalavra() {
+            let palavra = document.getElementById("palavra").value;
+            let xhttp = new XMLHttpRequest();
+            xhttp.open("GET", `https://api.dicionario-aberto.net/word/${palavra}`);
+            xhttp.send();
+            xhttp.onload = function () {
+                let retorno = this.response;
+                retorno = JSON.parse(retorno);
+                document.getElementById("retorno").innerHTML = retorno[0].xml;
+            }
+        }
+    </script>
+</body>
+
+</html>

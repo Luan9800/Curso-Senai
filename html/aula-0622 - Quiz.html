@@ -131,6 +131,7 @@
             }
 
             let quiz = {};
+            embaralharPerguntas();
             function carregarQuiz(nPergunta) {
                 quiz = lsPergunta[nPergunta];
                 document.querySelector('h2').innerHTML = quiz.pergunta;
@@ -184,9 +185,21 @@
             function reiniciar() {
                 let resp = confirm('Deseja reiniciar o Quiz');
                 if (resp) {
-                    window.location.href = "/html/aula-0622.html"
+                    window.location.href = "/html/aula-0622 - Quiz.html"
                 }
 
+            }
+
+            function embaralharPerguntas() {
+                let listaTemporaria = [];
+                let cont = 0;
+
+                while (lsPergunta.length > 0) {
+                    let numSorteado= Math.trunc(Math.random() * lsPergunta.length);
+                    listaTemporaria[cont] = lsPergunta.splice(numSorteado, 1)[0];
+                    cont++;
+                }
+                lsPergunta = listaTemporaria;
             }
         </script>
     </div>

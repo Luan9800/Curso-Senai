@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="ls-regiao" id="ls-regiao" onchange="buscarUf(this.value)">
+        <option value="">Norte</option>
+        <option value="">Sul</option>
+    </select>
+    <select name="ls-uf" id="ls-uf">
+
+    </select>
+    <script>
+        // declarar
+        var xhttp = new XMLHttpRequest();
+        // configurar
+        xhttp.open("GET", "https://servicodados.ibge.gov.br/api/v1/localidades/regioes");
+        // ativar
+        xhttp.send();
+        // trabalhar com o retorno
+        xhttp.onload = function () {
+            // console.log(this.response);
+            carregarRegiao(this.response);
+        }
+        /* criar um função que vai
+        converter uma String em Array de JSON
+        usar um laço de repetição para criar as <option> e incluir no <select>
+        */
+        function carregarRegiao(lsRegiao) {
+            lsRegiao = JSON.parse(lsRegiao);
+            let lsOption = "";
+            // console.log(lsRegiao);
+            for (const r of lsRegiao) {
+                // console.log(r.nome);
+                lsOption += `<option value="${r.id}">${r.nome}</option>`;
+            }
+            document.getElementById('ls-regiao').innerHTML = lsOption;
+        }
+
+        function buscarUf(idRegiao) {
+            let xhttpU = new XMLHttpRequest();
+            xhttp.open("GET", `https://servicodados.ibge.gov.br/api/v1/localidades/regioes/${idRegiao}/estados`);
+            xhttp.send();
+            xhttp.onload = function () {
+                let lsUf = this.response;
+                lsUf = JSON.parse(lsUf);
+                let lsOption = "";
+                for (const ls of lsUf) {
+                    lsOption += `<option value="${ls.id}">${ls.sigla} - ${ls.nome}</option>`;
+                }
+                document.getElementById('ls-uf').innerHTML = lsOption;
+            }
+        }
+        // fazer a mesma coisa para mostrar a lista de município
+        // https://servicodados.ibge.gov.br/api/v1/localidades/estados/{UF}/municipios
+
+        // carregar o endereço pelo CEP
+        // https://viacep.com.br/
+        // https://viacep.com.br/ws/01001000/json/
+    </script>
+
+</body>
+
+</html>

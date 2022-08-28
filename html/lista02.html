@@ -66,84 +66,84 @@
 
 <body>
     <div id="corpo">
-    <div class="questao">
-        <h1>
-            Questã 01:<span>Tabuada
-                <a href="detalhes.html" target="_blank">detalhar</a></span>
-        </h1>
-        <input type="text" id="num" style="display: inline" />
-        <br><input type="button" onclick="questao01()" class="btn btn-danger" value="Calcular" /></br>
-        <p id="resultado01">Resultado:</p>
-    </div>
-    <div class="questao">
-        <h1>
-            Questã 02:<span>Mostrar os números entre 2 valores
-                <a href="detalhes.html" target="_blank">detalhar</a></span>
-        </h1>
-        <p id="resultado02">Resultado: Os número entre A e Z são (x,x,x,x,x).</p>
-        <label for="">Valor 01:</label>
-        <input type="text" id="n1" />
-        <label for="">Valor 02:</label>
-        <input type="text" id="n2" />
-        <input type="button" class="btn btn-danger" onclick="questao02()" value="Executar" />
-    </div>
-    <div class="questao">
-        <h1>
-            Questã 03:<span>
-                Lista armazenada
-                <a href="detalhes.html" target="_blank">detalhar</a></span>
-        </h1>
-        <p id="">Resultado: A lista de itens é [xxxx,xxxx,xxxx,xxxxx]</p>
-        <label for="">Item:</label>
-        <input type="text" id="" />
-        <input type="button" value="Add" />
-        <input type="button" value="Show" />
-        <input type="button" value="Clear" />
-    </div>
-    <div class="questao">
-        <h1>
-            Questã 04:<span>Mega SENA
-                <a href="detalhes.html" target="_blank">detalhar</a></span>
-        </h1>
-        <p id="resultado04">Resultado:00,00,00,00,00,00</p>
-        <input type="button" onclick="questao04()" class="btn btn-danger" value="Sortear" />
-    </div>
-    <div class="questao">
-        <h1>
-            Questã 05:<span>
-                Lista homens e mulheres
-                <a href="detalhes.html" target="_blank">detalhar</a></span>
-        </h1>
-        <p id="">
-            Resultado: <br />Lista de homens [xxxx,xxxx,xxxx,xxxxx] <br />Lista de
-            mulheres [xxxx,xxxx,xxxx,xxxxx]
-        </p>
-        <label for="">Nome:</label>
-        <input type="text" id="" />
-        <label for="">Sexo:</label>
-        <select name="sexo" id="">
-            <option value="M">Masculino</option>
-            <option value="F">Feminino</option>
-        </select>
-        <input type="button" value="Add" />
-        <input type="button" value="Show" />
-        <input type="button" value="Clear" />
-    </div>
-    <div class="questao">
-        <h1>
-            DESAFIOO!:<span>
-                Jo-Ken-Po <a href="detalhes.html" target="_blank">detalhar</a></span>
-        </h1>
-        <p id="">Resultado: [Vitótio|Derrota|Empate]</p>
-        <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
-            class="mao">✊🏽</span>
-        <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
-            class="mao">🖐🏽</span>
-        <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
-            class="mao">✌🏽</span>
+        <div class="questao">
+            <h1>
+                Questã 01:<span>Tabuada
+                    <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <input type="text" id="num" style="display: inline" />
+            <br><input type="button" onclick="questao01()" class="btn btn-danger" value="Calcular" /></br>
+            <p id="resultado01">Resultado:</p>
+        </div>
+        <div class="questao">
+            <h1>
+                Questã 02:<span>Mostrar os números entre 2 valores
+                    <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <p id="resultadoQ2">Resultado: Os número entre A e Z são (x,x,x,x,x).</p>
+            <label for="">Valor 01:</label>
+            <input type="text" id="valor1" />
+            <label for="">Valor 02:</label>
+            <input type="text" id="valor2" />
+            <input type="button" class="btn btn-danger" onclick="questao02()" value="Executar" />
+        </div>
+        <div class="questao">
+            <h1>
+                Questã 03:<span>
+                    Lista armazenada
+                    <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <p id="">Resultado: A lista de itens é [xxxx,xxxx,xxxx,xxxxx]</p>
+            <label for="">Item:</label>
+            <input type="text" id="itemLista" />
+            <input type="button" value="Add" onclick="questao03('add')" />
+            <input type="button" value="Show" onclick="questao03('show')" />
+            <input type="button" value="Clear" onclick="questao03('clear')" />
+        </div>
+        <div class="questao">
+            <h1>
+                Questã 04:<span>Mega SENA
+                    <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <p id="resultado04">Resultado:00,00,00,00,00,00</p>
+            <input type="button" onclick="questao04()" class="btn btn-danger" value="Sortear" />
+        </div>
+        <div class="questao">
+            <h1>
+                Questã 05:<span>
+                    Lista homens e mulheres
+                    <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <p id="resultadoQ5">
+                Resultado: <br />Lista de homens [xxxx,xxxx,xxxx,xxxxx] <br />Lista de
+                mulheres [xxxx,xxxx,xxxx,xxxxx]
+            </p>
+            <label for="">Nome:</label>
+            <input type="text" id="nome" />
+            <label for="">Sexo:</label>
+            <select name="sexo" id="sexo">
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+            </select>
+            <input type="button" value="Add" onclick="questao05('add')" />
+            <input type="button" value="Show" onclick="questao05('show')" />
+            <input type="button" value="Clear" onclick="questao05('clear')" />
+        </div>
+        <div class="questao">
+            <h1>
+                DESAFIOO!:<span>
+                    Jo-Ken-Po <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <p id="">Resultado: [Vitótio|Derrota|Empate]</p>
+            <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
+                class="mao">✊🏽</span>
+            <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
+                class="mao">🖐🏽</span>
+            <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
+                class="mao">✌🏽</span>
 
-        <span class="adversario">👋🏽</span>
-    </div>
+            <span class="adversario">👋🏽</span>
+        </div>
     </div>
     <script>
         function questao01() {
@@ -153,20 +153,57 @@
                 resultado01 += num + "x" + count + "=" +
                     num * count + "<br/>";
 
-            document.getElementById("resultado01").innerHTML = `Resultado: <b><br>${resultado01}</b><b>`
+            document.getElementById("resultado01").innerHTML = `Resultado: <b><br>${resultado01}</b><br>`
         }
 
-        function questao02() {
-            let n1 = Number(document.getElementById("n1").value);
-            let n2 = Number(document.getElementById("n2").value);
-            let listResultado = [];
+        function questao02(params) {
+            let valor1 = document.getElementById('valor1').value;
+            valor1 = Number(valor1);
+            let valor2 = document.getElementById('valor2').value;
+            let resultado = `Resultado: Os números entre <b>${valor1} e ${valor2}</b> são`;
 
-            for (let i = 0; i <= i; i++) {
-                listResultado = n1 + n2;
+            if (valor1 >= valor2) {
+                while (valor1 >= valor2) {
+                    console.log(valor1);
+                    resultado += valor1 + ",";
+                    valor1--;
+                }
+
+            } else {
+                while (valor1 <= valor2) {
+                    console.log(valor1);
+                    resultado += valor1 + ",";
+                    valor1++;
+
+                }
             }
-            document.getElementById("resultado02").innerHTML = `${listResultado}`;
+            document.getElementById("resultadoQ2").innerHTML = resultado;
         }
 
+        let listaQ3 = [];
+        function questao03(botao) {
+
+            switch (botao) {
+                case 'add':
+                    listaQ3.push(document.getElementById('itemLista').value);
+                    console.log(listaQ3);
+                    break;
+
+                case 'show':
+                    document.getElementById('resultadoQ3').innerHTML =
+                        `Resultado: A lista de itens é [${listaQ3}]`;
+                    break;
+
+                case 'clear':
+                    listaQ3 = [];
+                    document.getElementById('resultadoQ3').innerHTML =
+                        `Resultado: A lista de itens é [${listaQ3}]`;
+                    break;
+                default:
+                    break;
+            }
+            document.getElementById('itemLista').value = "";
+        }
 
         function questao04() {
             const maxNumbers = 6;
@@ -175,10 +212,10 @@
             let list = [];
 
             for (let i = 0; i < maxNumbers; i++) {
-                 list[i] = i + 10;
+                list[i] = i + 10;
             }
-            for(let i = list.length; i;){
-                randomNumber = Math.random()* i-- | 0;
+            for (let i = list.length; i;) {
+                randomNumber = Math.random() * i-- | 0;
                 tmp = list[randomNumber];
                 list[randomNumber] = list[i];
                 list[i] = tmp;
@@ -187,8 +224,39 @@
             }
 
             document.getElementById("resultado04").innerHTML = list;
-
         }
+
+        let listaQ5 = [];
+        function questao05(botao) {
+            let pessoa = {};
+            let resultado = "";
+            pessoa.nome = document.getElementById('nome').value;
+            pessoa.sexo = document.getElementById('sexo').value;
+
+            if (botao == 'add') {
+                listaQ5.push(pessoa);
+            } else if (botao == 'show') {
+                let m = "", f = "";
+                for (p of listaQ5) {
+                    if (p.sexo == 'M') {
+                        m += p.nome + ',';
+                    } else {
+                        f += p.nome + ',';
+                    }
+                }
+                resultado = `Resultado: <br>
+                Lista de homens [${m}] <br>
+                Lista de mulheres [${f}]`;
+                document.getElementById('resultadoQ5').innerHTML = resultado;
+            } else if (botao == 'clear') {
+                listaQ5 = [];
+                resultado = `Resultado: <br>
+                Lista de homens [] <br>
+                Lista de mulheres [] `;
+                document.getElementById('resultadoQ5').innerHTML = resultado;
+
+            }
+        } 
 
     </script>
 </body>

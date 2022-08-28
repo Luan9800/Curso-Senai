@@ -17,36 +17,38 @@
         </style>
         <div class="container">
             <h2>Gerenciador Pergunatas Quiz</h2>
+            <div id="alerta" class="alert alert-danger col-sm-offset-2">
+                Exemplo
+            </div>
             <div class="form-horizontal">
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="pergunta">Pergunta:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="pergunta" placeholder="" name="pergunta"
-                            value="Contra qual Clube Pelé marcou o sei Milesimo gol?">
+                        <input type="text" class="form-control" id="alerta" placeholder="" value="">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="opcao01">Opção 01:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="opcao01" placeholder="" value="Vasco">
+                        <input type="text" class="form-control" id="opcao01" placeholder="" value="">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="opcao02">Opção 02:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="opcao02" placeholder="" value="Portuguesa">
+                        <input type="text" class="form-control" id="opcao02" placeholder="" value="">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="opcao03">Opção 03:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="opcao03" placeholder="" value="Corinthians">
+                        <input type="text" class="form-control" id="opcao03" placeholder="" value="">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="opcao04">Opção 04:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="opcao04" placeholder="" value="Cruzeiro">
+                        <input type="text" class="form-control" id="opcao04" placeholder="" value="">
                     </div>
                 </div>
             </div>
@@ -55,7 +57,7 @@
                 <label class="control-label col-sm-2" for="">Opção Correta:</label>
                 <div class="col-sm-10">
                     <label class="radio-inline">
-                        <input type="radio" name="opcaoCorreta" value="1" checked>Opção 01
+                        <input type="radio" name="opcaoCorreta" value="1">Opção 01
                     </label>
                     <label class="radio-inline">
                         <input type="radio" name="opcaoCorreta" value="2">Opção 02
@@ -69,7 +71,8 @@
                 </div>
             </div>
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" onclick="gravar()" class="btn btn-dark">Submit</button>
+                <button type="submit" onclick="gravar()" class="btn btn-dark">Gravar</button>
+                <button type="submit" onclick="novo()" class="btn btn-dark">Novo</button>
             </div>
         </div>
     </div>
@@ -83,21 +86,71 @@
                 quiz.pergunta = lista[i].value;
             }
             if (i >= 1 && i <= 4) {
-                quiz.resposta[i - 1] = lista[i].value;
+                //verificar se as opções foram preenchidas para entrar no array 
+                if (lista[i].value != "") {
+                    quiz.resposta[i - 1] = lista[i].value;
+                }
             }
             if (i >= 5 && i <= 8) {
                 if (lista[i].checked) {
                     quiz.correta = i - 5;
                 }
             }
+            let msg = "";
+            //validar se o objeto quiz esta devidamente preenchido
+            if (quiz.pergunta == "") {
+                msg += "Necessario preencher a pergunta!";
+
+            }
+            // validar se todas as opcões de resposta foram preenchidas 
+            if (quiz.resposta.length < 4) {
+                msg += "Necessario preencher a todas as opções de resposta!";
+            }
+
+
+            //validar se opção correta foi selecionada 
+            if (quiz.correta == undefined) {
+                msg += "Necessario selecionar a opção correta!";
+
+            }
+
+            let alerta = document.querySelectorAll("#alerta");
+            if (msg != "") {
+                alerta.innerHTML = msg;
+                alerta.classList.add("alert-danger");
+                return;
+            } else {
+                alerta.innerHTML = "Novo item fo quiz adcionado!";
+                alerta.classList.remove("alert-danger");
+                alerta.classList.add("alert-danger");
+
+            }
+
+            let baseQuiz = localStorage.getItem('baseQuiz');
+            baseQuiz = JSON.parse(baseQuiz);
+            baseQuiz.push(quiz);
+            localStorage.setItem('baseQuiz', JSON.stringify(baseQuiz));
+            limparForm();
+
+            function limparForm() {
+                let lista = document.querySelectorAll('input');
+                for (i in lista) {
+                    if (i >= 0 && i <= 4) {
+                        lista[i].value = "";
+                    }
+                    if (i >= 5 && i <= 8) {
+                        lista[i].checke = false;
+
+
+                    }
+
+                }
+
+
+            }
+
 
         }
-        let baseQuiz = localStorage.getItem('baseQuiz');
-        baseQuiz = JSON.parse(baseQuiz);
-        baseQuiz.push(quiz);
-        localStorage.setItem('baseQuiz', JSON.stringify(baseQuiz));
-
-
     }
 </script>
 </body>
