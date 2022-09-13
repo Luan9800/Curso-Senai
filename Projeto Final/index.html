@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Loja Lc Imports.</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <h1>Loja Lc Imports<i class="material-icons" id="carrinho-principal"
+            onclick="verListaProdutoSelecionado()">&#xe8cc;</i></h1>
+    <div id="listaProduto">
+        <div class="embrulho" style="display:nome;">
+            <div class="produto">
+                <img src="img/holding-iphone-3.jpeg" alt="">
+                <p>
+                    <span class="valor">R$2000,00</span>
+                </p>
+                <i class="material-icons carrinho" onclick="addProdutoCarrinho()">&#xe8cc;</i>
+            </div>
+        </div>
+    </div>
+    <div id="formulario" style="display: none;">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome">
+        <label for="endereco">Endereco:</label>
+        <input type="text" id="endereco">
+        <label for="cor">Cor:</label>
+        <input type="text" id="cor">
+        <label for="GB">GB:</label>
+        <input type="text" id="GB">
+        <button id="btFinalizar" onclick="enviarPedido()" >Finalizar</button>
+
+    </div>
+</body>
+
+</html>
