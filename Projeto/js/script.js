@@ -1,6 +1,5 @@
 let xhttp = new XMLHttpRequest();
 let listaProduto = [];
-
 function buscarProduto() {
     xhttp.open("GET", "https://pascoa-chiquinha.herokuapp.com/produto/");
     xhttp.send();
@@ -10,15 +9,14 @@ function buscarProduto() {
         montarListaProdutosHtml(lsProduto);
     }
 }
-
-localStorage.setItem("")
+localStorage.setItem("listaProdutoLocalStorage", JSON.lsProduto);
 
 function montarListaProdutosHtml(lsProduto) {
     let listaProduto = "";
     let i = 0;
     for (produto of lsProduto) {
         listaProduto +=
-    `<div class="embrulho"">
+            `<div class="embrulho"">
         <div class="produto">
             <img src= "${produto.imagem}" alt="">
             <p> ${produto.nome}
@@ -32,6 +30,19 @@ function montarListaProdutosHtml(lsProduto) {
         i++;
     }
     document.getElementById("listaProduto").innerHTML = listaProduto;
+    document.getElementById("formulario").style.display = "none";
+}
+
+
+function marcarProdutosSelecionadosLocalStorage() {
+    let lista = localStorage.getItem("listaProdutoLocalStorage");
+    lista = JSON.parse(lista);
+    for (i in lista) {
+        if (lista[i].carrinho) {
+            addProdutoCarrinho(i);
+
+        }
+    }
 }
 
 function addProdutoCarrinho(i) {
@@ -44,15 +55,65 @@ function addProdutoCarrinho(i) {
         document.getElementsByClassName("carrinho")[i].style.color = "#0000007d";
 
     }
+    localStorage.setItem("listaProdutoLocalStorage", JSON.stringify(lsProduto));
 }
+
+let verCarrinho = false;
+
 
 function verListaProdutoSelecionado() {
+    if (verCarrinho) {
+        buscarProduto();
+        montarListaProdutosHtml();
+        verCarrinho = false;
+    } else {
+        verCarrinho = true;
+    }
+    let listaProduto = "";
+    document.getElementById("listaProduto").innerHTML = "";
+    let i = 0;
+    let j = 0;
     for (produto of lsProduto) {
         if (produto.carrinho) {
-            console.log(produto)
-
+            listaProduto +=
+                `<div class="embrulho"">
+        <div class="produto">
+            <img src= "${produto.imagem}" alt="">
+            <p> ${produto.nome}
+                <span class="valor">${produto.valor.toFixed(2)}</span>
+            </p>
+            <span class = "btMaisMenos"> 
+               <span class = "btMais" onclick="add(1,${i},${produto})">+</span>
+               <span class = "btMenos" onclick="add(-1,${i},${produto})">-</span>
+            </span>
+            <span class= "quantidade">${produto.quantidade}</span>
+        </div>
+    </div>
+          `;
+            i++;
         }
+        j++;
     }
+    document.getElementById("listaProduto").innerHTML = listaProduto;
+    document.getElementById("formulario").style.display = "grid";
 }
+
+function add(qt, i, j) {
+    //console.log(qt + " " + i);
+    //console.log(lsProduto[j]);
+    lsProduto[j].quantidade += qt;
+    if (lsProduto[j].quantidade == 0) {
+        lsProduto[j].quantidade = 1
+        return;
+    }
+    doxument.getElementsByClassName("quantidade")[i].innerHTML = lsProduto[j].quantidade;
+}
+
+function enviarPedido() {
+
+
+  
+}
+
 buscarProduto();
 

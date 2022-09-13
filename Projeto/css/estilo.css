@@ -9,17 +9,112 @@ img {
     box-shadow: 0px 0px 20px #000000;
 }
 
+h1 {
+    text-align: center;
+    font-family: "Brush Script MT";
+    font-size: 60px;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    padding-left: 180px;
+}
+
+.carrinho {
+    color: #0000007d;
+    position: absolute;
+    right: 8px;
+    bottom: 14px;
+    font-size: 41px;
+    cursor: pointer;
+
+}
+
+#carrinho-principal {
+    font-size: 60px;
+    color: #000000;
+    cursor: pointer;
+    padding-left: 80px;
+    vertical-align: text-bottom;
+}
+
+#carrinho-principal:hover {
+    color: #e66b6b;
+}
+
+.btMaisMenos {
+    right: 20px;
+    bottom: 30px;
+    position: absolute;
+}
+
+.btMais,
+.btMenos {
+    cursor: pointer;
+    color: #e66b6b;
+    font-weight: bold;
+    font-size: 30px;
+    padding-block-end: 10px;
+
+}
+
+.quantidade {
+    position: absolute;
+    right: -76px;
+    bottom: 20px;
+    background-color: #e66b6b;
+    font-size: 20px;
+    border-radius: 60%;
+    font-size: 20px;
+}
+
+.carrinho:houver {
+    color: #e66b6b;
+
+}
+
+.produto {
+    position: relative;
+    width: 500px;
+    margin-top: 20px;
+}
+
+.embrulho {
+    display: grid;
+    place-items: center;
+}
+
+#formulario {
+    display: grid;
+    place-items: center;
+}
+
+label {
+    font-size: 14px;
+    width: 45%;
+    height: 20px;
+    border: solid #e66b6b;
+
+}
+
+.btFinalizar {
+    background-color: #e66b6b;
+    border: none;
+    margin-top: 10px;
+    padding: 10px;
+    cursor: pointer;
+
+}
+
 p {
     background-color: #f7eaef;
     position: absolute;
-    top: 0;
-    left: 80px;
-    width: 400px;
+    top: -8px;
+    left: 70px;
+    width: 80%;
     height: 73px;
     z-index: -1;
     padding-left: 40px;
     padding-top: 10px;
-    border: #e9ddd8 solid 2px;
+    border: #e66b6b solid 2px;
     font-family: 'Lucida Handwriting';
     box-shadow: 0px 0px 5px #000000;
 
@@ -33,5 +128,5 @@ p {
     color: white;
     font-weight: bold;
     padding: 5px;
-    font-size: 'Lucida Console';
+    font-family: "Lucida Console";
 }
