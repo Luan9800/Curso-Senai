@@ -12,8 +12,8 @@
 
 <style>
     img {
-        height: 40px;
-        width: 40px;
+        height: 70px;
+        width: 70px;
     }
 
     #corpoTb {
@@ -127,7 +127,7 @@
 
                     function apagar() {
                         let id = document.getElementById('id').value;
-                        xhttp.open("DELETE",`"https:lcimports.herokuapp.com/produto/"${id}`);
+                        xhttp.open("DELETE",`https:lcimports.herokuapp.com/produto/${id}`);
                         xhttp.send();
                         xhttp.onload = function () {
                             burcarProduto();

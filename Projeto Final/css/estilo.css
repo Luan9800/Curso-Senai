@@ -24,7 +24,7 @@ h1 {
     position: absolute;
     left: auto;
     right: 10px;
-    bottom: 14px;
+    bottom: 10px;
     font-size: 41px;
     cursor: pointer;
 }
@@ -59,16 +59,16 @@ h1 {
 
 .quantidade {
     position: absolute;
-    right: -76px;
-    bottom: 20px;
-    background-color: #093884;
+    right: -70px;
+    bottom: 15px;
+    background-color: #840909;
     padding: 15px;
-    border-radius: 70%;
-    font-size: 40px;
+    border-collapse: 70%;
+    font-size: 30px;
 }
 
 .carrinho:hover {
-    color: #21db0c;
+    color: #f11c0d;
 }
 
 .produto {
@@ -85,34 +85,36 @@ h1 {
 #formulario {
     display: grid;
     place-items: center;
+    border-radius: 20px;
 }
 
 label {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 input {
-    width: 500px;
-    height: 20px;
-    border: solid #e66b6b;
+    width: 250px;
+    height: 30px;
+    border-radius: 20px;
+    border: solid #0f0e0e;
 }
 
 #btFinalizar {
-    background-color: #e66b6b;
-    border: none;
+    background-color: #18de22;
+    border-radius: 40px;
+    border: solid #0f0e0e;
     margin-top: 10px;
     padding: 10px;
-    cursor: pointer;
 }
 
 
 p {
     background-color: #eae4e4;
     position: absolute;
-    top: -8px;
-    left: 70px;
-    width: 80%;
-    height: 73px;
+    top: 0px;
+    left: 64px;
+    width: 90%;
+    height: 95px;
     z-index: -1;
     padding-left: 40px;
     padding-top: 2px;
@@ -130,4 +132,5 @@ p {
     font-weight: bold;
     padding: 5px;
     font-family: "Lucida Console";
+    margin-top: 6px;
 }

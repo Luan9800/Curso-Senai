@@ -14,12 +14,13 @@ function buscarProduto() {
 function montarListaProdutosHtml(lsProduto) { // Vou adicionar com o Gerenciador
     let listaProduto = ""; //Criando um varialvel lista iniciamente vazia
     let i = 0;
+    // console.log(lsProduto);
     for (produto of lsProduto) {
         listaProduto += ` 
         <div class="embrulho" style="display:nome;">
                <div class="produto">
             <img src="${produto.imagem}" alt="">
-            <p>
+            <p>${produto.nome}
                 <span class="valor">${produto.valor.toFixed(2)}</span>
             </p>
             <i class="material-icons carrinho" onclick="addProdutoCarrinho(${i})" >&#xe8cc;</i>
@@ -30,6 +31,7 @@ function montarListaProdutosHtml(lsProduto) { // Vou adicionar com o Gerenciador
         produto.carrinho = false;
         i++;
     }
+    console.log(listaProduto);
     document.getElementById("listaProduto").innerHTML = listaProduto;
     document.getElementById("formulario").style.display = "none";
 }
@@ -47,12 +49,13 @@ function marcarProdutosSelecionadosLocalStorage() {
 
 function addProdutoCarrinho(i) {
     let produto = lsProduto[i];
+    // console.log(produto);
     if (produto.carrinho == false) {
         produto.carrinho = true;
-        document.getElementsByClassName("carrinho")[i].style.calor = "#e66b6b";
+        document.getElementsByClassName("carrinho")[i].style.color = "#e66b6b";
     } else {
         produto.carrinho = false;
-        document.getElementsByClassName("carrinho")[i].style.calor = "#0000007d";
+        document.getElementsByClassName("carrinho")[i].style.color = "#0000007d";
     }
     localStorage.setItem("listaProdutoLocalStorage", JSON.stringify(lsProduto));
 }
@@ -71,24 +74,25 @@ function verListaProdutoSelecionado() {
     document.getElementById("listaProduto").innerHTML = "";
     let i = 0;
     let j = 0;
-
-    for (produto of lsProduto) {
-        if (produto.carrinho) {
+    for ( produto of lsProduto) {
+        if(produto.carrinho){
             produto.quantidade = 1;
-            listaProduto += `v class="embrulho"">
-            <div class="produto">
-                <img src="${produto.imagem}" alt="">
-                <p> ${produto.nome}
-                    <span class="valor">${produto.valor.toFixed(2)}</span>
-                </p>
-                
-                <span class = "btMaisMenos">
-                    <span class = "btMais" onclick="add(1,${i},${j})">+</span>
-                    <span class = "btMenos" onclick="add(-1,${i},${j})">-</span>
-                </span>
-                <span class = "quantidade">${produto.quantidade}</span>
+            listaProduto += `
+            <div class="embrulho"">
+                <div class="produto">
+                    <img src="${produto.imagem}" alt="">
+                    <p> ${produto.nome}
+                        <span class="valor">${produto.valor.toFixed(2)}</span>
+                    </p>
+                    <span class="btMaisMenos">
+                        <span class="btMais" onclick="add(1,${i},${j})" >+</span>
+                        <span class="btMenos" onclick="add(-1,${i},${j})" >-</span>
+                    </span>
+                    <span class="quantidade">${produto.quantidade}</span>
                 </div>
-                </div> `;
+                
+            </div>
+            `;
             i++;
         }
         j++;
@@ -98,13 +102,13 @@ function verListaProdutoSelecionado() {
 }
 
 function add(qt, i, j) {
-    lsProduto[i].quantidade += qt;
+    lsProduto[j].quantidade += qt;
     if (lsProduto[j].quantidade == 0) {
         lsProduto[j].quantidade = 1;
         return;
 
     }
-    document.getElementsByName("quantidade")[i].innerHTML = lsProduto[j].quantidade;
+    document.getElementsByClassName("quantidade")[i].innerHTML = lsProduto[j].quantidade;
 }
 
 function enviarPedido() {
@@ -118,13 +122,14 @@ function enviarPedido() {
         }
         let nome = document.getElementById('nome').value;
         let endereco = document.getElementById('endereco').value;
-        let cor = document.getElementById('cor').value;
-        let GB = document.getElementById('GB').value;
-        let msg = `Olá gostaria de confirmar o pedido com os seguintes dados:\n${pedido} \nTotal ${total} \nNome:${nome} Endereço:\n${endereco} Cor:\n${cor} GB:\n{GB}`;
+        let cep = document.getElementById('cep').value;
+        let msg = `Olá gostaria de confirmar o pedido com os seguintes dados:\n${pedido} \nTotal ${total} \nNome:${nome} Endereço:\n${endereco} Cep:\n${cep}`;
         msg = encodeURI(msg);
-        let fone = '5561998314452'
+        let fone = "5561998314452";
         link = `https://api.whatsapp.com/send?phone=${fone}&text=${msg}`;
         window.open(link, '_blank');
 
     }
 }
+
+buscarProduto();
